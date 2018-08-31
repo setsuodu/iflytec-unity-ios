@@ -20,6 +20,9 @@ public class Bridge
     [DllImport("__Internal")]
     public static extern void stopTTS();
 
+    [DllImport("__Internal")]
+	public static extern void selectVoicer(string name);
+
 	// 语音识别
 
     [DllImport("__Internal")]

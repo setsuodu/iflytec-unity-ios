@@ -149,41 +149,36 @@
 extern "C" {
 #endif
     
-    TTSUIController * controller;
-    
     void initSynthesizer()
     {
         NSLog(@"==>> 初始化");
-        
-        controller = [TTSUIController sharedInstance];
-        [controller initSynthesizer];
+        [[TTSUIController sharedInstance] initSynthesizer]; //语速、音量、发音人等配置
     }
     
     void startTTS(const char * content)
     {
         NSString* str = [NSString stringWithCString:content encoding:NSUTF8StringEncoding];
         NSLog(@"Unity参数 ==>> @%@", str);
-        
         // 实例化，直接运行.m中的函数
-        [controller startSyn:content];
+        [[TTSUIController sharedInstance] startSyn:content];
     }
     
     void pauseTTS()
     {
         NSLog(@"==>> 暂停");
-        [controller.iFlySpeechSynthesizer pauseSpeaking];
+        [[TTSUIController sharedInstance].iFlySpeechSynthesizer pauseSpeaking];
     }
     
     void resumeTTS()
     {
         NSLog(@"==>> 恢复");
-        [controller.iFlySpeechSynthesizer resumeSpeaking];
+        [[TTSUIController sharedInstance].iFlySpeechSynthesizer resumeSpeaking];
     }
     
     void stopTTS()
     {
         NSLog(@"==>> 结束");
-        [controller.iFlySpeechSynthesizer stopSpeaking];
+        [[TTSUIController sharedInstance].iFlySpeechSynthesizer stopSpeaking];
     }
     
 #ifdef __cplusplus

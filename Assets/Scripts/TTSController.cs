@@ -7,10 +7,18 @@ using UnityEngine.SceneManagement;
 public class TTSController : MonoBehaviour 
 {
 	public InputField contentField;
+	public Toggle[] toggles;
 
 	void Start()
 	{
-        Bridge.initSynthesizer();
+        //Bridge.initSynthesizer();
+		IFlyTekInterface.Initialize();
+
+		for (int i = 0; i < toggles.Length; i++)
+		{
+			int index = i;
+			toggles[i].onValueChanged.AddListener((bool value) => SelectVoicer(value, index));
+		}
 	}
 
 	public void BackButton()
@@ -43,5 +51,15 @@ public class TTSController : MonoBehaviour
 	{
 		// 处理UnitySendMessage()回调
 		Debug.Log("show ==>> " + log);
+	}
+
+	void SelectVoicer(bool value, int index)
+	{
+		if (value)
+		{
+			string _name = toggles[index].name;
+			//Debug.Log(_name);
+			Bridge.selectVoicer(_name);
+		}
 	}
 }

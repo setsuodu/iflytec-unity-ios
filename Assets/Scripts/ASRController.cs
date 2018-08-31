@@ -10,7 +10,8 @@ public class ASRController : MonoBehaviour
 
     void Start()
     {
-        Bridge.initRecognizer();
+		//Bridge.initRecognizer();
+        IFlyTekInterface.Initialize();
     }
 
     public void BackButton()

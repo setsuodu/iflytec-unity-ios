@@ -7,6 +7,7 @@
 //
 
 #import "TTSConfig.h"
+#import "TTSUIController.h"
 
 @implementation TTSConfig
 
@@ -34,7 +35,8 @@
     _pitch = @"50";
     _sampleRate = @"16000";
     _engineType = @"cloud";
-    _vcnName = @"xiaoxin";
+    _vcnName = self.vcnName; //nannan
+    NSLog(@"当前发音人 >> %@", _vcnName);
 
     _vcnNickNameArray = @[NSLocalizedString(@"xiaoyan", nil),
                           NSLocalizedString(@"xiaoyu", nil),
@@ -53,5 +55,21 @@
     _vcnIdentiferArray = @[@"xiaoyan",@"xiaoyu",@"vixy",@"vixq",@"vixf",@"vixx",@"vixk",@"catherine",@"XiaoYun",@"Abha",@"Gabriela",@"Allabent",@"Mariane"];
 }
 
-
 @end
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
+    void selectVoicer(const char *name)
+    {
+        NSString *_name = [NSString stringWithUTF8String:name];
+        NSLog(@"选择 >> %@", _name);
+        [TTSConfig sharedInstance].vcnName = _name;
+        [[TTSUIController sharedInstance] initSynthesizer];
+    }
+    
+#ifdef __cplusplus
+}
+#endif
