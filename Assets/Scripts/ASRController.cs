@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 public class ASRController : MonoBehaviour 
 {
 	public Text resultText;
-   
+
+    void Start()
+    {
+        Bridge.initRecognizer();
+    }
+
     public void BackButton()
     {
 		SceneManager.LoadScene("tts");
-    }
-
-	public void InitRecognizer()
-    {
-		Bridge.initRecognizer();
     }
 
     // 开始录音

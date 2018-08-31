@@ -7,16 +7,16 @@ using UnityEngine.SceneManagement;
 public class TTSController : MonoBehaviour 
 {
 	public InputField contentField;
-   
-    public void BackButton()
+
+	void Start()
+	{
+        Bridge.initSynthesizer();
+	}
+
+	public void BackButton()
     {
 		SceneManager.LoadScene("asr");
     }
-
-	public void InitSynthesizer()
-	{      
-		Bridge.initSynthesizer();
-	}
 
 	public void StartTTS ()
 	{
