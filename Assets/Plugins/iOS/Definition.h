@@ -14,7 +14,7 @@
 #define ButtonHeight 44
 #define NavigationBarHeight 44
 
-#define APPID_VALUE           @"输入你的id"
+#define APPID_VALUE           @"填写你的appid"
 #define URL_VALUE             @""                 // url
 #define TIMEOUT_VALUE         @"20000"            // timeout, Unit:ms
 #define BEST_URL_VALUE        @"1"                // best_search_url

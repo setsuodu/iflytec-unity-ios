@@ -11,8 +11,7 @@ public class TTSController : MonoBehaviour
 
 	void Start()
 	{
-        //Bridge.initSynthesizer();
-		IFlyTekInterface.Initialize();
+        Bridge.initSynthesizer();
 
 		for (int i = 0; i < toggles.Length; i++)
 		{
