@@ -12,6 +12,9 @@ public class Bridge
 	public static extern void startTTS(string content);
 
     [DllImport("__Internal")]
+    public static extern void startUriTTS(string content, string path);
+
+    [DllImport("__Internal")]
 	public static extern void pauseTTS();
 
     [DllImport("__Internal")]

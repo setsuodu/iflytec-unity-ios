@@ -32,13 +32,15 @@ typedef NS_OPTIONS(NSInteger, Status) {
  2.URI TTS   : Not Playing While synthesizing;
  */
 @interface TTSUIController : UIViewController <IFlySpeechSynthesizerDelegate>
-//@interface TTSUIController : UnityAppController <IFlySpeechSynthesizerDelegate>
 
 @property (nonatomic, strong) IFlySpeechSynthesizer * iFlySpeechSynthesizer;
 
 @property (nonatomic, assign) BOOL isCanceled;
 @property (nonatomic, assign) BOOL hasError;
 @property (nonatomic, assign) BOOL isViewDidDisappear;
+
+@property (nonatomic, strong) NSString *uriPath;
+@property (nonatomic, strong) NSString *wavPath;
 
 @property (nonatomic, assign) Status state;
 @property (nonatomic, assign) SynthesizeType synType;
